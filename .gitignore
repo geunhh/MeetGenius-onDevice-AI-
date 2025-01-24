@@ -1,0 +1,28 @@
+# 로그 파일
+*.log
+
+# OS 또는 IDE 관련 파일
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# 컴파일된 파일
+*.class
+*.o
+*.so
+
+# Node.js 프로젝트
+node_modules/
+dist/
+
+# Python 프로젝트
+__pycache__/
+*.pyc
+*.pyo
+env/
+venv/
+
+# Django 프로젝트
+db.sqlite3
+/static/

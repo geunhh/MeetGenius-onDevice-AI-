@@ -22,6 +22,8 @@ __pycache__/
 *.pyo
 env/
 venv/
+venv_fastapi/
+venv_django/
 
 # Django 프로젝트
 db.sqlite3

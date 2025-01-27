@@ -1,16 +1,3 @@
-from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from .models import Department, Position, User
-
-# @admin.register(Department)
-class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')  # 보여줄 필드 추가
-
-# @admin.register(Position)
-class PositionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')  # 보여줄 필드 추가
-
-
-admin.site.register(Department)
-admin.site.register(Position)
-admin.site.register(User, UserAdmin)
+version https://git-lfs.github.com/spec/v1
+oid sha256:0361458365e02e3553566ec9608f9b47cdf5e433f440ee935b64b4cde0cf00bb
+size 1072

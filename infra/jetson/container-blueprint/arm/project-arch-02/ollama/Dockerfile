@@ -5,6 +5,3 @@ FROM dustynv/ollama:0.5.1-r36.4.0
 WORKDIR /ollama
 
 EXPOSE 11434
-
-# Default command
-CMD ["ollama", "serve"]

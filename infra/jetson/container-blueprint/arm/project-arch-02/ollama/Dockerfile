@@ -4,9 +4,7 @@ FROM dustynv/ollama:0.5.1-r36.4.0
 # Set working directory
 WORKDIR /ollama
 
-
-# Copy application files (if necessary)
-COPY . /app
+EXPOSE 11434
 
 # Default command
 CMD ["ollama", "serve"]

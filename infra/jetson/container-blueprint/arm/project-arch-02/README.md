@@ -20,6 +20,7 @@
  ┃ ┃ ┗ 📜main.py
  ┃ ┗ 📜Dockerfile
  ┣ 📂ollama
+ ┃ ┗ 📂models
  ┃ ┗ 📜Dockerfile
  ┗ 📜docker-compose.yml
  ```

@@ -1,6 +1,9 @@
-from django.urls import path, include
+from django.urls import path
+from . import views
+
+app_name = "accounts"
 
 urlpatterns = [
-    path('', include('dj_rest_auth.urls')),
-
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
 ]

@@ -1,10 +1,3 @@
-from django.db import models
-from accounts.models import User
-
-# Create your models here.
-class Meeting(models.Model):
-    room = models.IntegerField()
-    starttime = models.DateTimeField()
-    endtime = models.DateTimeField()
-    booked_at = models.DateTimeField(auto_now_add=True)
-    booker = models.ForeignKey(User)
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ff91d42d50018e29487abb404ebec5624bc97ae0cb887fb1fbda511e2e7bc7c
+size 1567

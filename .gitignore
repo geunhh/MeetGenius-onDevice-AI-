@@ -28,3 +28,6 @@ venv_django/
 # Django 프로젝트
 db.sqlite3
 /static/
+
+# dotenv
+.env

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from api.endpoints import test_router
-from api.endpoints import embeddings,rag,reports,stt
+from api.endpoints import embeddings,reports,stt, rag
 
 app = FastAPI()
 

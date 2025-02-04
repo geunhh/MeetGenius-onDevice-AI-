@@ -39,7 +39,7 @@ COPY . /backend
 
 # FastAPI 및 라이브러리 설치
 RUN pip install --no-cache-dir \
-    -r /backend/fastapi/requirements-jetson.txt
+    -r /backend/requirements-jetson.txt
 
 # # whl 파일 삭제
 # RUN rm -rf /backend/*.whl

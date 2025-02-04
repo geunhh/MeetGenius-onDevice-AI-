@@ -4,6 +4,8 @@ from api.endpoints import embeddings,rag,reports,stt
 
 app = FastAPI()
 
+stt.init_app(app)
+
 app.include_router(test_router.router)
 app.include_router(stt.router)
 app.include_router(embeddings.router)

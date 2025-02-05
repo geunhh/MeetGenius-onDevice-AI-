@@ -1,14 +1,3 @@
-from fastapi import APIRouter
-from pydantic import BaseModel # 데이터 검증을 위한 모델
-
-
-router = APIRouter(
-    prefix="/api/reports",
-)
-
-
-
-
-@router.get("/")
-def test():
-    return 'reports page'
+version https://git-lfs.github.com/spec/v1
+oid sha256:2a9aa3c58859b0766e3a5d323397fd8916395e4b885d66689720a7726b637dbb
+size 13570

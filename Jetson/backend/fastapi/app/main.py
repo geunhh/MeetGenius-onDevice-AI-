@@ -4,7 +4,7 @@ from api.endpoints import embeddings,reports,stt, rag
 
 app = FastAPI()
 
-stt.init_app(app)
+# stt.init_app(app)
 
 @app.get("/")
 def hello():

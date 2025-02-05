@@ -31,3 +31,6 @@ db.sqlite3
 
 # dotenv
 .env
+
+# .huggingface-cache : 허깅 페이스 모델 저장 디렉토리 
+.huggingface-cache/

@@ -6,6 +6,11 @@ app = FastAPI()
 
 stt.init_app(app)
 
+@app.get("/")
+def hello():
+    return {"message": "Hello!"}
+
+
 app.include_router(test_router.router)
 app.include_router(stt.router)
 app.include_router(embeddings.router)

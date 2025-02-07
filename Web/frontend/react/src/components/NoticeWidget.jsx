@@ -1,14 +1,3 @@
-// src/components/NoticeWidget.jsx
-
-import React from "react";
-
-const NoticeWidget = () => {
-  return (
-    <div>
-      <h3>공지사항</h3>
-      <p>최신 공지사항을 표시하는 위젯</p>
-    </div>
-  );
-};
-
-export default NoticeWidget; // ✅ export default 추가
+version https://git-lfs.github.com/spec/v1
+oid sha256:5cb2541dcc40e8dc0d06d4ffa2df62f7e548edfb48ea1f32ccd27a4b44f7fce7
+size 2417

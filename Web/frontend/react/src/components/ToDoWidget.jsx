@@ -1,14 +1,3 @@
-// src/components/ToDoWidget.jsx
-
-import React from "react";
-
-const ToDoWidget = () => {
-  return (
-    <div>
-      <h3>할 일 목록</h3>
-      <p>여기에 할 일 목록이 표시됩니다.</p>
-    </div>
-  );
-};
-
-export default ToDoWidget; // ✅ export default 추가
+version https://git-lfs.github.com/spec/v1
+oid sha256:aa4d3b401586d8a56eed26597c838ba60826eef90cd316d9f71d07cf317736a0
+size 2553

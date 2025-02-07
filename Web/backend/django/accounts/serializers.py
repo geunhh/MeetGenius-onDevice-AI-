@@ -1,9 +1,3 @@
-from rest_framework import serializers
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields= ('employee_number','name','department','position')
+version https://git-lfs.github.com/spec/v1
+oid sha256:5770e3864da40f4e3321b55903408942b4b12afa3e2afab9afc8d67cd64571b3
+size 529

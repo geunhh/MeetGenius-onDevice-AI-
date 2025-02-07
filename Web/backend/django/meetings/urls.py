@@ -1,9 +1,3 @@
-from django.urls import path
-from .views import receive_stt_test,see_view,start_stt,stop_stt
-
-urlpatterns = [
-    path('stt/', receive_stt_test, name="stt"),
-    path('stream/',see_view),
-    path('stt/start/',start_stt),
-    path('stt/stop/',stop_stt),
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:d1f37cffff6da71c83f8801f002ffdf920cd79ca45d95adbe7f1a8eef795f3fc
+size 718

@@ -1,11 +1,3 @@
-from django.urls import path
-from . import views
-
-app_name = "accounts"
-
-urlpatterns = [
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
-    path('notifications/unread/', views.get_unread_notifications, name='get_unread_notifications'),
-    path('notifications/mark_as_read/<int:notification_id>/', views.mark_as_read, name='mark_as_read'),
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:b3de3e741d13698c1285143a5e62b7e984fa5124b9c4cb8b0f9374c0241e596d
+size 672

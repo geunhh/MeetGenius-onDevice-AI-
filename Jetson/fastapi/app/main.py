@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routes import meetings, projects
+from app.api.routes import meetings, projects
 
 app = FastAPI()
 

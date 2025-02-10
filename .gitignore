@@ -32,5 +32,5 @@ db.sqlite3
 # dotenv
 .env
 
-# .huggingface-cache : 허깅 페이스 모델 저장 디렉토리 
-.huggingface-cache/
+# vector db (로컬 데이터 저장 위치, Docker 컨테이너 사용 x)
+vector_db/

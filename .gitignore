@@ -34,3 +34,5 @@ db.sqlite3
 
 # vector db (로컬 데이터 저장 위치, Docker 컨테이너 사용 x)
 vector_db/
+
+.huggingface-cache/

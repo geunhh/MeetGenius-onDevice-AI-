@@ -1,11 +1,3 @@
-from django.urls import path
-from . import views
-
-app_name = "meetingroom"
-
-urlpatterns = [
-    path('book/<int:room_id>/', views.meetingroom_list_create, name='meetingroom_list_create'),
-    path('project_participation/<str:project_name>/', views.project_detail, name='project_detail'),
-    path('booked/<int:meeting_id>/', views.meeting_detail, name="meeting_detail"),
-    path('mymeeting/', views.mymeeting, name="mymeeting"),
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:baf0552a763d9f4133de0e8faded58803053b173b8144177cab8b170926868fc
+size 604

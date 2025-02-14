@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0235c0eca988c7190ecd3e8211f315b9ae08d967a784711725924d18cbc37f4
-size 595
+import axios from "axios";
+
+const baseURL = import.meta.env.VITE_APP_BASEURL;
+// ✅ Axios 인스턴스 생성
+const axiosInstance = axios.create({
+  
+  baseURL: baseURL, // Django 백엔드 API URL
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+
+axiosInstance.interceptors.request.use((config) => {
+  const authToken = localStorage.getItem("authToken");
+  if (authToken) {
+    config.headers["Authorization"] = `Token ${authToken}`;
+  }
+  return config;
+});
+
+export default axiosInstance;

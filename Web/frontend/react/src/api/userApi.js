@@ -1,11 +1,3 @@
-import axiosInstance from "./axiosInstance";
-
-// ✅ 사용자 정보 가져오기 (부서명 포함)
-export const fetchUserInfo = async () => {
-  try {
-    const response = await axiosInstance.get("/accounts/users/");
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || "Failed to fetch user info";
-  }
-};
+version https://git-lfs.github.com/spec/v1
+oid sha256:9c47a40537c2e2ae2be3106c8044a041669727ec1c8d8a48de535cccb413e6dc
+size 628

@@ -1,18 +1,3 @@
-import React from "react";
-import { useParams } from "react-router-dom";  // ✅ useParams 사용
-
-
-const MomSummaryPage = () => {
-    const { meetingId } = useParams();  // ✅ URL에서 meetingId 가져오기
-
-    return (
-
-        <div>
-        <p>요약 회의록 페이지</p>
-        <p>현재 회의 ID: {meetingId}</p> {/* ✅ meetingId 출력 */}
-        </div>
-    );
-};
-
-
-export default MomSummaryPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:c9977004a9f9c4d306118c18f6841484be50652ff191e9666ec18c0e3bdcb402
+size 4614

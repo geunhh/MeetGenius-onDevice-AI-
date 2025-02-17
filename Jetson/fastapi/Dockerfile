@@ -45,23 +45,24 @@ RUN pip install --no-cache-dir --use-feature=in-tree-build \
     ./llama_cpp_python-0.3.7-cp310-cp310-linux_aarch64.whl \
     ./torch-2.5.0-cp310-cp310-linux_aarch64.whl \
     ./bitsandbytes-0.45.0-cp310-cp310-linux_aarch64.whl \
+    ./ctranslate2-4.5.0-cp310-cp310-linux_aarch64.whl \
     -r /fastapi/requirements-jetson.txt
 
 # 기존에 설치되어 있을 수 있는 ctranslate2 제거 (오류 방지를 위해)
 RUN pip uninstall -y ctranslate2 || true
 
 # CTranslate2 소스코드 클론 후 빌드 및 설치
-RUN git clone --recursive https://github.com/OpenNMT/CTranslate2.git /opt/CTranslate2 && \
-    cd /opt/CTranslate2 && \
-    mkdir build && cd build && \
-    cmake -DWITH_MKL=OFF -DWITH_INTEL_OPENMP=OFF -DOPENMP_RUNTIME=NONE -DWITH_CUDA=ON -DWITH_CUDNN=ON .. && \
-    make -j$(nproc) && \
-    make install && \
-    ldconfig && \
-    cd ../python && \
-    pip install -r install_requirements.txt && \
-    python setup.py bdist_wheel && \
-    pip install dist/*.whl
+# RUN git clone --recursive https://github.com/OpenNMT/CTranslate2.git /opt/CTranslate2 && \
+#     cd /opt/CTranslate2 && \
+#     mkdir build && cd build && \
+#     cmake -DWITH_MKL=OFF -DWITH_INTEL_OPENMP=OFF -DOPENMP_RUNTIME=NONE -DWITH_CUDA=ON -DWITH_CUDNN=ON .. && \
+#     make -j$(nproc) && \
+#     make install && \
+#     ldconfig && \
+#     cd ../python && \
+#     pip install -r install_requirements.txt && \
+#     python setup.py bdist_wheel && \
+#     pip install dist/*.whl
 
 # Expose port for FastAPI
 EXPOSE 8000

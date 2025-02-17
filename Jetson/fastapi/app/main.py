@@ -1,12 +1,3 @@
-from fastapi import FastAPI
-from app.api.routes import meetings, projects, tests
-
-app = FastAPI()
-
-@app.get("/")
-def hello():
-    return {"message": "Hello!"}
-
-app.include_router(meetings.router)
-app.include_router(projects.router)
-app.include_router(tests.router)  # 테스트 라우터 추가
+version https://git-lfs.github.com/spec/v1
+oid sha256:6f11430ea49e5bfc3b37aa26d8fbe7f2f4bd5868ab03f25920e82b74eeaeba2e
+size 732

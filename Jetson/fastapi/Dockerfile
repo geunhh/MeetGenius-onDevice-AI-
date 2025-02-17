@@ -2,7 +2,7 @@
 # nvidia jetpack image 
 FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0 
 
-WORKDIR /backend
+WORKDIR /fastapi
 
 # 필수 패키지 설치
 RUN apt-get update && apt-get install -y \
@@ -15,6 +15,13 @@ RUN apt-get update && apt-get install -y \
     ninja-build \
     libopenblas-dev \
     language-pack-en \
+    libomp-dev \
+    libasound2-dev \
+    alsa-utils \
+    portaudio19-dev \
+    cmake \
+    build-essential \
+    zlib1g-dev \
     && apt-get clean
 
 # zsh를 기본 셸로 설정
@@ -30,19 +37,31 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     echo "\nplugins=(git zsh-autosuggestions zsh-syntax-highlighting)\n" >> ~/.zshrc
 
 # 코드 복사
-COPY . /backend
+COPY . /fastapi
 
-# # pytorch 및 llama-cpp-python 다운로드
-# RUN pip install /backend/torch-2.6.0rc1-cp310-cp310-linux_aarch64.whl
-# RUN pip install numpy==1.26.4
-# RUN pip install /backend/llama_cpp_python-0.3.7-cp310-cp310-linux_aarch64.whl
+# FastAPI 및 라이브러리 설치 - 일단 타 로컬에서 끌고왔음 
+RUN pip install --no-cache-dir --ignore-installed numpy
+RUN pip install --no-cache-dir --use-feature=in-tree-build \
+    ./llama_cpp_python-0.3.7-cp310-cp310-linux_aarch64.whl \
+    ./torch-2.5.0-cp310-cp310-linux_aarch64.whl \
+    ./bitsandbytes-0.45.0-cp310-cp310-linux_aarch64.whl \
+    -r /fastapi/requirements-jetson.txt
 
-# FastAPI 및 라이브러리 설치
-RUN pip install --no-cache-dir \
-    -r /backend/requirements-jetson.txt
+# 기존에 설치되어 있을 수 있는 ctranslate2 제거 (오류 방지를 위해)
+RUN pip uninstall -y ctranslate2 || true
 
-# # whl 파일 삭제
-# RUN rm -rf /backend/*.whl
+# CTranslate2 소스코드 클론 후 빌드 및 설치
+RUN git clone --recursive https://github.com/OpenNMT/CTranslate2.git /opt/CTranslate2 && \
+    cd /opt/CTranslate2 && \
+    mkdir build && cd build && \
+    cmake -DWITH_MKL=OFF -DWITH_INTEL_OPENMP=OFF -DOPENMP_RUNTIME=NONE -DWITH_CUDA=ON -DWITH_CUDNN=ON .. && \
+    make -j$(nproc) && \
+    make install && \
+    ldconfig && \
+    cd ../python && \
+    pip install -r install_requirements.txt && \
+    python setup.py bdist_wheel && \
+    pip install dist/*.whl
 
 # Expose port for FastAPI
 EXPOSE 8000

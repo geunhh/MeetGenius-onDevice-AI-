@@ -23,6 +23,7 @@ __pycache__/
 *.pyo
 env/
 venv/
+.venv/
 venv_fastapi/
 venv_django/
 
@@ -36,7 +37,9 @@ db.sqlite3
 # vector db (로컬 데이터 저장 위치, Docker 컨테이너 사용 x)
 vector_db/
 
+# llm model cache
 .llm-model-caches/
 
+# chromadb data
 Jetson/chromaDB/data/*
 chroma.sqlite3

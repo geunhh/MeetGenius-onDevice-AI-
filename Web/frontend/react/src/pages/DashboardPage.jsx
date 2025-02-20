@@ -1,8 +1,3 @@
-import React from "react";
-import Dashboard from "../components/Dashboard"; // 대시보드 전체 레이아웃 컴포넌트 가져오기
-
-const DashboardPage = () => {
-  return <Dashboard />; // Dashboard 컴포넌트 렌더링
-};
-
-export default DashboardPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4196f1f822582ace32029597abd232929930643e2eb1f21633e30c31539a2044
+size 3051

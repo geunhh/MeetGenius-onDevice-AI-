@@ -1,12 +1,3 @@
-import { configureStore } from "@reduxjs/toolkit"; // Redux 스토어 생성 함수 가져오기
-import authReducer from "./authSlice"; // authSlice에서 생성한 리듀서 가져오기
-
-// Redux 스토어 설정
-export const store = configureStore({
-  reducer: {
-    auth: authReducer, // authSlice 리듀서를 auth 상태로 등록
-  },
-});
-
-export default store;
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab90ee657f2c477c16508d198d69ea54fba44e86edca3c3b0cb6f0a834c6260a
+size 736

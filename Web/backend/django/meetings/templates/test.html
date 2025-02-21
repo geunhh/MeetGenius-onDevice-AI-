@@ -1,3 +1,53 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abacf7e657a5f35ae7e2707dd5c6b96d06b956812edac755be374120cdaebe50
-size 2029
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Streaming Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="bg-blue-500 text-white text-center py-4">
+            <h1 class="text-xl font-semibold">Real-Time Streaming</h1>
+        </div>
+
+        <!-- 현재 접속자 수 -->
+        <div class="text-center text-gray-600 py-2" id="user-count">
+            현재 접속 중: 0명
+        </div>
+
+        <!-- 스트리밍 데이터 표시 영역 -->
+        <div id="chat-box" class="p-4 h-96 overflow-y-auto flex flex-col space-y-2">
+            <p class="text-gray-400 text-center">Waiting for streaming data...</p>
+        </div>
+    </div>
+
+    <script>
+        const eventSource = new EventSource("http://127.0.0.1:8000/meetings/stream/");
+        const chatBox = document.getElementById("chat-box");
+        const userCount = document.getElementById("user-count");
+
+        eventSource.onmessage = function(event) {
+            const message = event.data;
+
+            // "현재 접속 중: X명" 메시지를 업데이트
+            if (message.startsWith("현재 접속 중:")) {
+                userCount.textContent = message;
+            } else {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = message;
+                messageElement.classList.add("p-2", "rounded-lg", "max-w-xs", "break-words", "bg-gray-200", "text-gray-800", "self-start");
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight; // 자동 스크롤
+            }
+        };
+
+        eventSource.onerror = function() {
+            console.error("Error with SSE connection");
+        };
+    </script>
+
+</body>
+</html>

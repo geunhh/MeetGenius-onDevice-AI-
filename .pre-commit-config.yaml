@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5fc575427c83b52bc7d82be660debb53959d5b011465b0f912f4bedcf69da4bc
-size 696
+repos:
+  # 사용하려는 Hook의 정의를 담는 리포지토리 목록을 지정
+  - repo: local  # 로컬 프로젝트에서 작성한 커스텀 스크립트를 사용 (URL 대신 'local' 지정)
+    hooks:
+      # 이 리포지토리에서 사용할 개별 Hook 목록
+      - id: commit-msg-check  # Hook의 고유 ID (pre-commit에서 사용)
+        name: Commit Message Check  # 이 Hook의 이름 (로그에 표시)
+        entry: python scripts/commit-msg-check.py  # 실행할 스크립트 경로 및 커맨드 (Python3로 실행)
+        language: python  # 실행 환경 정의 (Python 기반)
+        stages: [commit-msg]  # 이 Hook이 실행될 Git 이벤트 (commit-msg 단계)

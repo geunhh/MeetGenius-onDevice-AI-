@@ -6,7 +6,7 @@ Jetson Orin Nano Developer Kit을 이용한 On-Device AI 회의 비서 MeetGeniu
 ```
         --- Dev/Jetson
 master  | 
-        --- Dev/ Web
+        --- Dev/Web
 ```
 - 위와 같은 구조로 개발을 진행.  
 - 각 Dev 브랜치가 독립적인 코드를 갖고 있음.

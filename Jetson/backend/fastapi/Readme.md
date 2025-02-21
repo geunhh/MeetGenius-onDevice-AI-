@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d55e7e2569043fb3d2799c46a3c734240a5411b625e2394fe467607533283452
-size 706
+# Fast API 기본구조
+```
+    fastapi
+    │── app/
+    │   ├── api/
+    │   │   ├── endpoint/
+    │   │   │   ├── stt.py         
+    │   │   │   ├── reports.py
+    │   │   │   ├── test_router.py
+    │   │   ├── __init__.py
+    │   ├── __init__.py
+    │
+    ├── core/   # 핵심 유틸리티 및 설정 관리
+    │   ├── chromadb_utils.py
+    │   ├── config.py
+    │   ├── embeddin_utils.py
+    │   ├── llm_utils.py
+    │
+    ├── .env  # 환경 변수 파일
+    ├── main.py  # FastAPI 애플리케이션 실행
+    ├── Readme.md
+    ├── requirements.txt
+
+```

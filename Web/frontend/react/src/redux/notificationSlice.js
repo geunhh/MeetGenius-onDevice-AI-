@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3559449f6aa64eabe1a73512f951f09ad39eeca9851ce94490374149825ac3bd
-size 934
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+  notifications: [], // 알림 목록
+  unreadCount: 0, // 읽지 않은 알림 개수
+};
+
+const notificationSlice = createSlice({
+  name: 'notifications',
+  initialState,
+  reducers: {
+    setNotifications: (state, action) => {
+      state.notifications = action.payload;
+      state.unreadCount = action.payload.filter((notif) => !notif.read).length;
+    },
+    markAsReadInStore: (state, action) => {
+      const notifId = action.payload;
+      const updatedNotifications = state.notifications.map((notif) =>
+        notif.id === notifId ? { ...notif, read: true } : notif
+      );
+      state.notifications = updatedNotifications;
+      state.unreadCount = updatedNotifications.filter((notif) => !notif.read).length;
+    },
+  },
+});
+
+export const { setNotifications, markAsReadInStore } = notificationSlice.actions;
+export default notificationSlice.reducer;
